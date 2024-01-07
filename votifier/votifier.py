@@ -1,5 +1,6 @@
-from datetime import datetime, timezone
 import socket
+from datetime import datetime, timezone
+
 import rsa
 
 
@@ -51,7 +52,8 @@ class Client:
         self.timeout = timeout
 
     def vote(self, vote: VoteV1):
-        pub_key = rsa.PublicKey.load_pkcs1_openssl_pem(ensure_pem_format(self.public_key).encode())
+        pub_key = rsa.PublicKey.load_pkcs1_openssl_pem(
+            ensure_pem_format(self.public_key).encode())
         encrypted_message = rsa.encrypt(str(vote).encode(), pub_key)
 
         # Send the encrypted message

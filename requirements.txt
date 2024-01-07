@@ -1,6 +1,5 @@
+build
 coveralls
 flake8
-setuptools
 twine
-wheel
 rsa
